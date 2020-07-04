@@ -10,7 +10,7 @@
 import setuptools
 
 setuptools.setup(
-    name="Code-similarity", # Replace with your own username
+    name="code-similarity", # Replace with your own username
     version="0.0.1",
     author="Raymond Luo",
     author_email="luolinhao1998@gmail.com",
