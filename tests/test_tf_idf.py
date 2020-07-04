@@ -22,8 +22,7 @@ base_data = [
 
 tfSim = tfSimilarity()
 
-tfSim.build_word_dict(base_data) # Build Words
+tfSim.build_word_dict(base_data)  # Build Words
 test_text = "风雨凄凄，鸡鸣喈喈。既见君子，云胡不夷。风雨潇潇，鸡鸣胶胶。既见君子，云胡不瘳。风雨如晦，鸡鸣不已。既见君子，云胡不喜。"
-sim = tfSim.get_tf_similarity(test_text)
+sim = tfSim.get_tf_similarity(test_text)  # get similarity
 print(sim)
-
