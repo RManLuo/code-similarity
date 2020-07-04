@@ -14,7 +14,7 @@ setuptools.setup(
     version="0.0.1",
     author="Raymond Luo",
     author_email="luolinhao1998@gmail.com",
-    description="An out of box code and text similarity computation pacakage",
-    url="https://github.com/pypa/sampleproject",
+    description="An out of box code and text similarity computation package",
+    url="https://github.com/RManLuo/code-similarity",
     packages=setuptools.find_packages(),
 )
