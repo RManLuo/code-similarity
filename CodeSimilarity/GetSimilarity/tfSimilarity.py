@@ -27,6 +27,11 @@ class tfSimilarity():
             self.stopwords = self.stopwords + list(line)
 
     def build_word_dict(self, data_list):
+        '''
+        Build word dictionary and tf-idf matrix
+        :param data_list: Text list
+        :return:
+        '''
         all_doc_list = [self.split_word(text) for text in data_list]  # Split words
         self.dictionary = corpora.Dictionary(all_doc_list)  # Build dictornary
         corpus = [self.dictionary.doc2bow(doc) for doc in all_doc_list]  # doc 2 bow
@@ -41,6 +46,11 @@ class tfSimilarity():
         return [item for item in seg if item not in self.stopwords]  # Get rid of stopwords
 
     def get_tf_similarity(self, text):
+        '''
+        Compute similarity
+        :param text: Text needed to be computed
+        :return: Similarity lists between the input text and each doc in corpus, the order of output will be as same as the input of the build_word_dict()
+        '''
         if not self.dictionary and not self.tfmodel and not self.index:
             raise AttributeError("Need to build dictionary and tf-idf model first, try run build_word_dict first!")
 
@@ -48,24 +58,3 @@ class tfSimilarity():
         doc_test_vec = self.dictionary.doc2bow(test_text)
         sim = self.index[self.tfmodel[doc_test_vec]]
         return list(sim)
-
-
-def tf_similarity(s1, s2):
-    '''
-    Compute text similarity with tf-idf method
-    :param s1: text 1
-    :param s2: text 2
-    :return: similarity
-    '''
-
-    def add_space(s):
-        return ' '.join(list(s))
-
-    # 将字中间加入空格
-    s1, s2 = add_space(s1), add_space(s2)
-    # 转化为TF矩阵
-    cv = CountVectorizer(tokenizer=lambda s: s.split())
-    corpus = [s1, s2]
-    vectors = cv.fit_transform(corpus).toarray()
-    # 计算TF系数
-    return np.dot(vectors[0], vectors[1]) / (norm(vectors[0]) * norm(vectors[1]))
