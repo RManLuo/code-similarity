@@ -23,7 +23,7 @@ class tfSimilarity():
         self.dictionary = None
         self.stopwords = []
         current_path = os.path.dirname(os.path.abspath(__file__))
-        for line in open(os.path.join(current_path, 'data', 'hit_stopwords.txt'), 'r', encoding='UTF-8'):
+        for line in open(os.path.join(current_path, 'data', 'hit_stopwords.txt'), 'r', encoding='UTF-8').readlines():
             self.stopwords = self.stopwords + list(line)
 
     def build_word_dict(self, data_list):
@@ -43,7 +43,7 @@ class tfSimilarity():
 
     def split_word(self, text):
         seg = jieba.lcut(text, cut_all=False)
-        return [item for item in seg if item not in self.stopwords]  # Get rid of stopwords
+        return [item for item in seg if item not in self.stopwords and not item.isspace()]  # Get rid of stopwords
 
     def get_tf_similarity(self, text):
         '''
