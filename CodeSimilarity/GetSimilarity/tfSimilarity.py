@@ -7,9 +7,6 @@
 # @User     : luoli
 # @Software: PyCharm
 # Reference:**********************************************
-from sklearn.feature_extraction.text import CountVectorizer
-import numpy as np
-from scipy.linalg import norm
 import jieba
 from gensim import corpora, models, similarities
 import os

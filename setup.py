@@ -23,6 +23,10 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url="https://github.com/RManLuo/code-similarity",
+    install_requires=[
+        'jieba>=0.42.1',
+        'gensim>=3.8.0'
+    ],
     packages=['CodeSimilarity'],
     include_package_data=True,
 )
