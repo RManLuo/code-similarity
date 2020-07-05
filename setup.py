@@ -16,7 +16,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="code-similarity",  # Replace with your own username
-    version="0.0.3",
+    version="0.0.4",
     author="Raymond Luo",
     author_email="luolinhao1998@gmail.com",
     description="An out of box code and text similarity computation package",
